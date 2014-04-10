@@ -1,0 +1,143 @@
+
+<%@ page import="taskmanagement1.Ressource" %>
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="<g:createLinkTo dir='css' file='style.css'/>" rel="stylesheet" type="text/css" />
+<!-- CuFon: Enables smooth pretty custom font rendering. 100% SEO friendly. To disable, remove this section -->
+<g:javascript  src="cufon-yui.js"/>
+<g:javascript  src="droid_sans_400-droid_sans_700.font.js"/>
+<g:javascript src="cuf_run.js"/>
+		<meta name="ressource" content="show">
+		<g:set var="entityName" value="${message(code: 'ressource.label', default: 'Ressource')}" />
+		<title><g:message code="default.show.label" args="[entityName]" /></title>
+	</head>
+	<body>
+	<div class="main">
+
+  <div class="header">
+    <div class="header_resize">
+      <div class="logo"><h1><small>For planning projects </small><span>Task</span>Manager</h1></div>
+      <div class="clr"></div>
+      
+      </div>
+      </div>
+  
+  </div>
+		<a href="#show-ressource" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+		<div class="nav" role="navigation">
+			<ul>
+				<li><a class="home" href="${createLink(uri: '/test')}"><g:message code="default.home.label"/></a></li>
+				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
+				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+			</ul>
+		</div>
+		<div id="show-ressource" class="content scaffold-show" role="main">
+			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
+			<g:if test="${flash.message}">
+			<div class="message" role="status">${flash.message}</div>
+			</g:if>
+			<ol class="property-list ressource">
+			
+				<g:if test="${ressourceInstance?.username}">
+				<li class="fieldcontain">
+					<span id="username-label" class="property-label"><g:message code="ressource.username.label" default="Username" /></span>
+					
+						<span class="property-value" aria-labelledby="username-label"><g:fieldValue bean="${ressourceInstance}" field="username"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${ressourceInstance?.password}">
+				<li class="fieldcontain">
+					<span id="password-label" class="property-label"><g:message code="ressource.password.label" default="Password" /></span>
+					
+						<span class="property-value" aria-labelledby="password-label"><g:fieldValue bean="${ressourceInstance}" field="password"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${ressourceInstance?.accountExpired}">
+				<li class="fieldcontain">
+					<span id="accountExpired-label" class="property-label"><g:message code="ressource.accountExpired.label" default="Account Expired" /></span>
+					
+						<span class="property-value" aria-labelledby="accountExpired-label"><g:formatBoolean boolean="${ressourceInstance?.accountExpired}" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${ressourceInstance?.accountLocked}">
+				<li class="fieldcontain">
+					<span id="accountLocked-label" class="property-label"><g:message code="ressource.accountLocked.label" default="Account Locked" /></span>
+					
+						<span class="property-value" aria-labelledby="accountLocked-label"><g:formatBoolean boolean="${ressourceInstance?.accountLocked}" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${ressourceInstance?.enabled}">
+				<li class="fieldcontain">
+					<span id="enabled-label" class="property-label"><g:message code="ressource.enabled.label" default="Enabled" /></span>
+					
+						<span class="property-value" aria-labelledby="enabled-label"><g:formatBoolean boolean="${ressourceInstance?.enabled}" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${ressourceInstance?.modules}">
+				<li class="fieldcontain">
+					<span id="modules-label" class="property-label"><g:message code="ressource.modules.label" default="Modules" /></span>
+					
+						<span class="property-value" aria-labelledby="modules-label"><g:link controller="module" action="show" id="${ressourceInstance?.modules?.id}">${ressourceInstance?.modules?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${ressourceInstance?.passwordExpired}">
+				<li class="fieldcontain">
+					<span id="passwordExpired-label" class="property-label"><g:message code="ressource.passwordExpired.label" default="Password Expired" /></span>
+					
+						<span class="property-value" aria-labelledby="passwordExpired-label"><g:formatBoolean boolean="${ressourceInstance?.passwordExpired}" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${ressourceInstance?.projet}">
+				<li class="fieldcontain">
+					<span id="projet-label" class="property-label"><g:message code="ressource.projet.label" default="Projet" /></span>
+					
+						<span class="property-value" aria-labelledby="projet-label"><g:link controller="project" action="show" id="${ressourceInstance?.projet?.id}">${ressourceInstance?.projet?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${ressourceInstance?.role}">
+				<li class="fieldcontain">
+					<span id="role-label" class="property-label"><g:message code="ressource.role.label" default="Role" /></span>
+					
+						<span class="property-value" aria-labelledby="role-label"><g:link controller="role" action="show" id="${ressourceInstance?.role?.id}">${ressourceInstance?.role?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${ressourceInstance?.taches}">
+				<li class="fieldcontain">
+					<span id="taches-label" class="property-label"><g:message code="ressource.taches.label" default="Taches" /></span>
+					
+						<span class="property-value" aria-labelledby="taches-label"><g:link controller="task" action="show" id="${ressourceInstance?.taches?.id}">${ressourceInstance?.taches?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+			</ol>
+			<g:form>
+				<fieldset class="buttons">
+					<g:hiddenField name="id" value="${ressourceInstance?.id}" />
+					<g:link class="edit" action="edit" id="${ressourceInstance?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
+					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+				</fieldset>
+			</g:form>
+		</div>
+	</body>
+</html>
